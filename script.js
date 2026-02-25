@@ -179,6 +179,72 @@ function updateCelebrationMessage() {
 
   celebrationElement.textContent = celebrationMessage;
   celebrationElement.style.display = "block";
+
+  // Disable check-in form and show Start Over button
+  disableCheckIn();
+}
+
+function disableCheckIn() {
+  const form = document.getElementById("checkInForm");
+  const nameInput = document.getElementById("attendeeName");
+  const teamSelect = document.getElementById("teamSelect");
+  const checkInBtn = document.getElementById("checkInBtn");
+  const startOverContainer = document.getElementById("startOverContainer");
+
+  nameInput.disabled = true;
+  teamSelect.disabled = true;
+  checkInBtn.disabled = true;
+  startOverContainer.style.display = "block";
+}
+
+function enableCheckIn() {
+  const form = document.getElementById("checkInForm");
+  const nameInput = document.getElementById("attendeeName");
+  const teamSelect = document.getElementById("teamSelect");
+  const checkInBtn = document.getElementById("checkInBtn");
+  const startOverContainer = document.getElementById("startOverContainer");
+
+  nameInput.disabled = false;
+  teamSelect.disabled = false;
+  checkInBtn.disabled = false;
+  startOverContainer.style.display = "none";
+}
+
+function resetAllData() {
+  // Reset count
+  count = 0;
+  attendees = [];
+
+  // Reset team counts
+  teams.forEach(function (team) {
+    setTeamCount(team.id, 0);
+  });
+
+  // Update UI
+  updateAttendeeCount();
+  updateProgressBar();
+  renderAttendeeList();
+
+  // Clear celebration and greeting messages
+  const celebrationElement = document.getElementById("celebration");
+  const greetingElement = document.getElementById("greeting");
+  celebrationElement.textContent = "";
+  celebrationElement.style.display = "none";
+  greetingElement.textContent = "";
+  greetingElement.style.display = "none";
+
+  // Remove winner highlights
+  highlightWinningTeams([]);
+
+  // Clear form
+  nameInput.value = "";
+  teamSelect.value = "";
+
+  // Re-enable check-in
+  enableCheckIn();
+
+  // Save cleared state
+  saveState();
 }
 
 // Handle form submission
@@ -218,4 +284,15 @@ form.addEventListener("submit", function (event) {
   saveState();
 });
 
+// Handle Start Over button
+const startOverBtn = document.getElementById("startOverBtn");
+startOverBtn.addEventListener("click", function () {
+  resetAllData();
+});
+
 loadState();
+
+// Check if we need to disable check-in on load
+if (count >= maxCount) {
+  disableCheckIn();
+}
