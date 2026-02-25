@@ -31,8 +31,17 @@ function updateAttendeeCount() {
 
 function updateProgressBar() {
   const progressBar = document.getElementById("progressBar");
-  const progress = Math.round((count / maxCount) * 100) + "%";
+  const percentComplete = Math.round((count / maxCount) * 100);
+  const progress = percentComplete + "%";
   progressBar.style.width = progress;
+
+  const percentageCompleteElement =
+    document.getElementById("percentageComplete");
+  const percentageRemainingElement = document.getElementById(
+    "percentageRemaining",
+  );
+  percentageCompleteElement.textContent = percentComplete + "%";
+  percentageRemainingElement.textContent = 100 - percentComplete + "%";
 }
 
 function renderAttendeeList() {

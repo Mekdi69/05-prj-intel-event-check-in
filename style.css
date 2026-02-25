@@ -238,6 +238,22 @@ button .fas {
   transition: width 0.6s ease;
 }
 
+.progress-percentage {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+#percentageComplete {
+  color: #0071c5;
+  font-weight: 700;
+}
+
+#percentageRemaining {
+  color: #64748b;
+  font-weight: 700;
+}
 /* Adjust spacing between components */
 .container {
   margin-top: 0;
