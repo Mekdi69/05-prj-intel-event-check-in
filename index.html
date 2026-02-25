@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -37,6 +37,7 @@
     <div class="container">
       <!-- Feedback message -->
       <p id="greeting"></p>
+      <p id="celebration"></p>
 
       <!-- Check-in form -->
       <form class="check-in" id="checkInForm">
@@ -80,6 +81,14 @@
             <span class="team-count" id="powerCount">0</span>
           </div>
         </div>
+      </div>
+
+      <div class="attendee-list">
+        <h3>Checked-In Attendees</h3>
+        <p id="attendeeEmpty" class="attendee-empty">
+          No attendees yet. Be the first to check in!
+        </p>
+        <ul id="attendeeList" class="attendee-items"></ul>
       </div>
     </div>
 

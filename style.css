@@ -25,7 +25,8 @@ body {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(
+  background:
+    linear-gradient(
       135deg,
       rgba(0, 153, 219, 0.9) 0%,
       rgba(0, 104, 181, 0.9) 50%,
@@ -258,6 +259,18 @@ button .fas {
   color: #003c71;
 }
 
+#celebration {
+  font-weight: 600;
+  font-size: 19px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: none;
+  background: linear-gradient(90deg, #fff7ed, #fef3c7);
+  color: #92400e;
+  border: 2px solid #fbbf24;
+}
+
 /* Counter */
 #attendeeCount {
   color: #0071c5;
@@ -331,6 +344,11 @@ select {
   gap: 5px;
 }
 
+.team-card.winner {
+  border: 2px solid #f59e0b;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+}
+
 /* Team card colors */
 .team-card.water {
   background-color: #e8f7fc;
@@ -346,6 +364,49 @@ select {
   font-size: 15px;
   font-weight: 500;
   color: #475569;
+}
+
+.attendee-list {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #f1f5f9;
+  text-align: left;
+}
+
+.attendee-list h3 {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.attendee-empty {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.attendee-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.attendee-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #334155;
+}
+
+.attendee-team {
+  font-weight: 600;
+  color: #0f172a;
 }
 
 /* Mobile responsive */
