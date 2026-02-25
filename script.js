@@ -197,7 +197,7 @@ form.addEventListener("submit", function (event) {
   teamCounter.textContent = parseInt(teamCounter.textContent, 10) + 1;
 
   // Show welcome message
-  const message = `👋 Welcome, ${name} from ${teamName}`;
+  const message = `Welcome, ${name}! Thanks for joining the Summit.`;
   const greetingElement = document.getElementById("greeting");
   greetingElement.textContent = message;
   greetingElement.classList.add("success-message");
@@ -207,8 +207,6 @@ form.addEventListener("submit", function (event) {
 
   updateCelebrationMessage();
   saveState();
-
-  form.requestFullscreen();
 });
 
 loadState();
